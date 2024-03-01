@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
@@ -6,6 +7,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     HomeComponent,
     RouterLink,
     RouterOutlet,
@@ -16,4 +18,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   title = 'homes';
+
+  isDarkMode = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark-mode');
+  }
 }

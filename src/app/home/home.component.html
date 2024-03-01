@@ -1,0 +1,15 @@
+<section class="form">
+    <div class="field has-addons">
+        <div class="control control-input">
+          <input class="input" type="text" placeholder="Find a city" #filter>
+        </div>
+        <div class="control control-button">
+          <a class="button is-info" type="button" (click)="filterResults(filter.value)">
+            Search
+          </a>
+        </div>
+    </div>
+  </section>
+  <section class="results">
+    <app-housing-location *ngFor="let housingLocation of filteredLocationList" [housingLocation]="housingLocation"></app-housing-location>
+</section>

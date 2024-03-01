@@ -2,54 +2,54 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css";
 
 :host {
-    --content-padding: 10px;
-  }
-  
-  header, footer {
-    display: block;
-    height: 60px;
-    padding: var(--content-padding);
-    box-shadow: 0px 5px 25px var(--shadow-color);
-    height: fit-content;
-  }
-  
-  .content {
-    padding: var(--content-padding);
-  }
-
-  .brand {
-    width: 100%;
-    position: relative;
-  }
-
-  .brand a {
-    margin-top: auto;
-  }
-
-  .brand-logo{
-    width: 10%;
-  }
-
-  .link {
-    margin: 30px;
-    text-decoration: none;
-    padding: 5px;
-  }
-
-  p {
-    text-align: center;
-  }
-
-  #overlay {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    background-color: rgba(0,0,0,.5); /* Semi-transparent */
+  --content-padding: 10px;
 }
 
-.highlight {
-    position: relative;
-    z-index: 11;
+section {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--primary-color);
+  position: relative;
+  z-index: 10;
+}
+
+/* Styles specific to dark mode */
+section.dark-mode {
+  z-index: 4;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+}
+  
+header, footer {
+  display: block;
+  height: 60px;
+  padding: var(--content-padding);
+  box-shadow: 0px 5px 25px var(--shadow-color);
+  height: fit-content;
+}
+  
+.content {
+  padding: var(--content-padding);
+}
+
+.brand {
+  width: 100%;
+  position: relative;
+}
+
+.brand a {
+  margin-top: auto;
+}
+
+.brand-logo{
+  width: 10%;
+}
+
+.link {
+  margin: 30px;
+  text-decoration: none;
+  padding: 5px;
+}
+
+p {
+  text-align: center;
 }

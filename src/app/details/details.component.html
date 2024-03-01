@@ -1,0 +1,74 @@
+<section class="section is-large">
+  <div class="tile is-ancestor">
+    <div class="tile is-4 is-vertical is-parent">
+      <div class="tile is-child box">
+        <figure class="image is-16by9">
+          <img class="card-photo" [src]="housingLocation?.photo" 
+            alt="Exterior photo of {{housingLocation?.name}}" />
+        </figure>
+        <p class="title is-3">{{housingLocation?.name}}</p>
+        <p class="subtitle is-5">About this housing in {{housingLocation?.city}}, {{housingLocation?.state}}</p>
+      </div>
+      <div class="tile is-child box">
+        <p class="title">Details</p>
+        <p>{{housingLocation?.availableUnits}} units available</p>
+        <p *ngIf="housingLocation?.wifi === true">
+          <i class="fa fa-solid fa-wifi"></i> Wi-Fi available
+        </p>
+        <p *ngIf="housingLocation?.wifi === false">
+            <i class="fa fa-solid fa-plane-up"></i> Wi-fi not available
+        </p>
+        <p *ngIf="housingLocation?.laundry === true">
+            <i class="fa fa-solid fa-jug-detergent"></i> Laundry available
+        </p>
+        <p *ngIf="housingLocation?.laundry === false">
+            <i class="fa fa-solid fa-hands-bubbles"></i> Laundry not available
+        </p>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <p class="title">Apply now to live here</p>
+        <form [formGroup]="applyForm" (submit)="submitApplication()"> 
+          <div class="field">
+            <label class="label" for="first-name">First Name</label>
+            <div class="control">
+              <input class="input" type="text" id="first-name" placeholder="Text input" formControlName="firstName">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="last-name">Last Name</label>
+            <div class="control">
+              <input class="input" type="text" id="last-name" placeholder="Text input" formControlName="lastName">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-danger" id="email" type="email" formControlName="email" placeholder="Email input">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>
+            <!-- <p class="help is-danger">This email is invalid</p> -->
+          </div>
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit">Apply now</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light" type="cancel">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</section>

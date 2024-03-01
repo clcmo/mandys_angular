@@ -1,4 +1,4 @@
-<section class="hero is-light is-fullheight" id="overlay">
+<section class="hero is-dark is-fullheight" [ngClass]="{'light-mode': !isDarkMode, 'dark-mode': isDarkMode}">
   <div class="hero-head">
     <header class="navbar">
       <div class="container">
@@ -24,13 +24,13 @@
               Contact
             </a>
             <span class="navbar-item">
-              <a class="button is-success is-inverted" id="turnoff">
-                <span class="icon">
-                  <i class="fab fa-light"></i>
-                </span>
-                <span>Acessibility</span>
+              <a *ngIf="isDarkMode === true" class="button is-warning is-inverted" (click)="toggleDarkMode()">
+                <i class="fa fa-solid fa-sun"></i>
               </a>
-            </span>
+              <a *ngIf="isDarkMode === false" class="button is-warning is-light" (click)="toggleDarkMode()">
+                <i class="fa fa-solid fa-moon"></i>
+              </a>
+            </span> 
           </div>
         </div>
       </div>
@@ -51,20 +51,3 @@
     </div>
   </nav>
 </section>
-
-<script>
-  $(function () {
-    var lightsOff = false;
-    $('#turnoff').on('click', function () {
-        lightsOff = !lightsOff;
-        $('#overlay').fadeToggle(1000); /* Choose desired delay */
-        if (!lightsOff)
-            setTimeout((function() {
-                $(this).removeClass('highlight');
-            }).bind(this), 1000); /* Same delay */
-        else
-            $(this).addClass('highlight');
-            $(this).removeId('overlay');
-    })
-  })
-</script>
